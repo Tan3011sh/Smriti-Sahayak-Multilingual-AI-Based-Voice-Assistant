@@ -32,24 +32,40 @@ function NotificationRow({ notification }: { notification: AppNotification }) {
     <li>
       <div
         className={cn(
-          'flex items-start gap-4 rounded-2xl p-4',
+          'flex items-center gap-5 rounded-2xl p-5',
           isHigh ? 'bg-destructive/10' : 'bg-secondary/60',
         )}
       >
         <div
           className={cn(
-            'flex size-11 shrink-0 items-center justify-center rounded-full',
-            isHigh ? 'bg-destructive/20 text-destructive' : 'bg-primary/15 text-primary',
+            'flex size-14 shrink-0 items-center justify-center rounded-full',
+            isHigh
+              ? 'bg-destructive/20 text-destructive'
+              : 'bg-primary/15 text-primary',
           )}
         >
-          <Icon className="size-5" strokeWidth={2} aria-hidden="true" />
+          <Icon
+            className="size-7"
+            strokeWidth={2}
+            aria-hidden="true"
+          />
         </div>
-        <div className="flex-1 gap-1">
-          <p className="text-lg font-medium leading-snug text-foreground">{notification.title}</p>
-          <p className="text-base text-muted-foreground">{notification.time}</p>
+
+        <div className="min-w-0 flex-1">
+          <p className="text-xl font-semibold leading-snug text-foreground">
+            {notification.title}
+          </p>
+
+          <p className="mt-1 text-lg font-medium text-muted-foreground">
+            {notification.time}
+          </p>
         </div>
+
         {isHigh && (
-          <Badge variant="destructive" className="mt-0.5 shrink-0">
+          <Badge
+            variant="destructive"
+            className="shrink-0 px-3 py-1.5 text-base font-semibold"
+          >
             Important
           </Badge>
         )}
@@ -96,17 +112,23 @@ export function NotificationPanel({ notifications }: { notifications: AppNotific
           </span>
         )}
       </SheetTrigger>
-      <SheetContent side="right" className="w-full gap-0 sm:max-w-md">
+      <SheetContent
+  side="right"
+  className="w-full gap-0 sm:max-w-xl"
+>
         <SheetHeader>
-          <SheetTitle className="text-2xl">Your Reminders</SheetTitle>
-          <SheetDescription className="text-base">
-            Activities and medical reminders for today.
-          </SheetDescription>
+          <SheetTitle className="text-3xl font-semibold">
+  Your Reminders
+</SheetTitle>
+
+<SheetDescription className="text-lg leading-relaxed">
+  Activities and medical reminders for today.
+</SheetDescription>
         </SheetHeader>
         <ScrollArea className="h-[calc(100vh-7rem)] px-4">
-          <div className="flex flex-col gap-6 pb-8">
-            <div className="flex flex-col gap-3">
-              <h2 className="px-1 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+          <div className="flex flex-col gap-8 pb-10">
+            <div className="flex flex-col gap-5">
+              <h2 className="px-1 text-lg font-bold uppercase tracking-wide text-foreground/70">
                 Daily Activities
               </h2>
               <ul className="flex flex-col gap-3">
