@@ -13,7 +13,7 @@ export function DynamicBackground() {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-gradient-to-b from-[oklch(0.93_0.03_95)] via-background to-[oklch(0.9_0.035_150)]"
+      className="pointer-events-none fixed inset-0 z-0 overflow-hidden bg-gradient-to-b from-[oklch(0.93_0.03_95)] via-background to-[oklch(0.9_0.035_150)]"
     >
       {/* Sun glow */}
       <div className="absolute -top-24 left-1/2 h-[26rem] w-[26rem] -translate-x-1/2 rounded-full bg-sun/35 blur-3xl sm:h-[34rem] sm:w-[34rem]" />

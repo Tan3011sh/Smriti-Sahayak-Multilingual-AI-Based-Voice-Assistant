@@ -45,10 +45,10 @@ export function CompanionDashboard({
   }, [response])
 
   return (
-    <main className="relative flex min-h-svh flex-col px-6 py-8 sm:px-10 sm:py-10">
-      <DynamicBackground />
+    <main className="relative isolate flex min-h-svh flex-col px-6 py-8 sm:px-10 sm:py-10">
+  <DynamicBackground />
 
-      <header className="flex items-center justify-between">
+  <header className="relative z-10 flex items-center justify-between">
         <div>
           <p className="text-lg font-semibold text-primary sm:text-xl">Smriti Sahayak</p>
           <p className="text-sm text-muted-foreground">Your calm companion</p>
@@ -59,7 +59,7 @@ export function CompanionDashboard({
         </div>
       </header>
 
-      <div className="flex flex-1 flex-col items-center justify-center gap-12 py-8">
+      <div className="relative z-10 flex flex-1 flex-col items-center justify-center gap-12 py-8">
         <AIGreeting greeting={greeting} />
         <VoiceAssistant state={state} onActivate={activate} />
         <ActionButtons />
