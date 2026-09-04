@@ -67,13 +67,29 @@ export function NotificationPanel({ notifications }: { notifications: AppNotific
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger
-        aria-label={`Notifications, ${unreadCount} unread`}
-        className="relative flex size-14 items-center justify-center rounded-full bg-card/80 text-foreground shadow-md ring-1 ring-border backdrop-blur transition-transform hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-      >
-        <Bell className="size-6" strokeWidth={2} aria-hidden="true" />
+  aria-label={`Notifications, ${unreadCount} unread`}
+  className="
+    relative flex size-[5.5rem] items-center justify-center
+    rounded-full
+    border border-white/60
+    bg-card/85
+    text-primary
+    shadow-[0_8px_24px_rgba(44,61,50,0.16)]
+    backdrop-blur-md
+    transition-all duration-300
+    hover:-translate-y-0.5 hover:scale-105
+    hover:bg-card
+    hover:shadow-[0_12px_30px_rgba(44,61,50,0.20)]
+    active:translate-y-0 active:scale-95
+    focus-visible:outline-none
+    focus-visible:ring-2
+    focus-visible:ring-primary
+  "
+>
+        <Bell className="size-9" strokeWidth={2} aria-hidden="true" />
         {unreadCount > 0 && (
           <span
-            className="absolute -right-1 -top-1 flex size-6 items-center justify-center rounded-full bg-sun text-sm font-semibold text-sun-foreground"
+            className="absolute -right-1 -top-1 flex size-6 items-center justify-center rounded-full border-2 border-card bg-sun text-xs font-bold text-sun-foreground shadow-sm"
             aria-hidden="true"
           >
             {unreadCount}

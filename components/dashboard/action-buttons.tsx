@@ -19,28 +19,54 @@ function ActionCard({
     <Link
       href={href}
       className={cn(
-        'group flex min-h-[12rem] flex-1 flex-col items-center justify-center gap-3 rounded-[2rem] border border-white/50 bg-card/90 p-6 text-center shadow-[0_12px_30px_rgba(44,61,50,0.12)] backdrop-blur-md transition-all duration-300 sm:min-h-[14rem] sm:p-8',
-        'hover:-translate-y-1 hover:shadow-lg focus-visible:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary',
-        'sm:p-8',
+        'group flex min-h-[14rem] w-full flex-col items-center justify-center gap-4 sm:w-[28rem]',
+        'rounded-[2rem] border border-white/60 bg-card/90 p-7 text-center',
+        'shadow-[0_14px_35px_rgba(44,61,50,0.14)] backdrop-blur-md',
+        'transition-all duration-300 sm:min-h-[14rem] sm:p-10',
+
+        'hover:-translate-y-1.5 hover:shadow-[0_20px_45px_rgba(44,61,50,0.18)]',
+        'active:scale-[0.98]',
+        'focus-visible:-translate-y-1',
+        'focus-visible:outline-none focus-visible:ring-2',
+        'focus-visible:ring-primary',
       )}
     >
+      {/* Icon */}
       <span
         className={cn(
-          'flex size-16 items-center justify-center rounded-full transition-transform duration-300 group-hover:scale-105 sm:size-20',
-          tone === 'primary' ? 'bg-primary/15 text-primary' : 'bg-sun/25 text-sun-foreground',
+          'flex size-[5.8rem] items-center justify-center rounded-full',
+          'shadow-sm transition-all duration-300',
+          'group-hover:scale-110 group-hover:shadow-md',
+          'sm:size-[5.5rem]',
+
+          tone === 'primary'
+            ? 'bg-primary/15 text-primary'
+            : 'bg-sun/30 text-sun-foreground',
         )}
       >
-        <Icon className="size-8 sm:size-9" strokeWidth={1.8} aria-hidden="true" />
+        <Icon
+          className="size-10 sm:size-11"
+          strokeWidth={1.8}
+          aria-hidden="true"
+        />
       </span>
-      <span className="text-xl font-semibold text-foreground sm:text-2xl">{label}</span>
-      <span className="text-base text-muted-foreground">{description}</span>
+
+      {/* Title */}
+      <span className="text-[1.35rem] font-bold tracking-tight text-foreground sm:text-2xl">
+        {label}
+      </span>
+
+      {/* Description */}
+      <span className="max-w-[16rem] text-[1rem] leading-relaxed text-muted-foreground sm:text-[1.05rem]">
+        {description}
+      </span>
     </Link>
   )
 }
 
 export function ActionButtons() {
   return (
-    <div className="flex w-full max-w-2xl flex-col justify-center gap-4 sm:flex-row sm:gap-6">
+    <div className="flex w-full flex-col justify-between gap-10 sm:flex-row sm:px-6 lg:px-16">
       <ActionCard
         href="/todo"
         icon={ClipboardList}
@@ -48,6 +74,7 @@ export function ActionButtons() {
         description="See today's tasks and reminders"
         tone="primary"
       />
+
       <ActionCard
         href="/games"
         icon={Puzzle}

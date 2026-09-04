@@ -48,12 +48,17 @@ export function CompanionDashboard({
     <main className="relative flex min-h-svh flex-col overflow-hidden px-6 py-8 sm:px-10 sm:py-10">
   <DynamicBackground />
 
-  <header className="relative z-10 flex items-center justify-between">
-        <div>
-          <p className="text-lg font-semibold text-primary sm:text-xl">Smriti Sahayak</p>
-          <p className="text-sm text-muted-foreground">Your calm companion</p>
-        </div>
-        <div className="flex items-center gap-3">
+  <header className="relative z-10 flex items-center justify-between gap-6">
+        <div className="flex flex-col gap-1">
+  <p className="font-serif text-2xl font-semibold tracking-tight text-primary drop-shadow-sm sm:text-3xl">
+    Smriti Sahayak
+  </p>
+
+  <p className="text-sm font-medium tracking-wide text-foreground/65 sm:text-base">
+    Your calm companion
+  </p>
+</div>
+        <div className="flex items-center gap-5 sm:gap-6">
           <NotificationPanel notifications={notifications} />
           <ProfilePanel user={user} />
         </div>

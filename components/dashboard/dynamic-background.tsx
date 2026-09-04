@@ -28,14 +28,14 @@ export function DynamicBackground() {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          opacity: 0.44,
+          opacity: 0.47,
         }}
         animate={{
           x: [-80, 80, -80],
           y: [0, -8, 0],
         }}
         transition={{
-          duration: 18,
+          duration: 15,
           repeat: Infinity,
           ease: 'easeInOut',
         }}
