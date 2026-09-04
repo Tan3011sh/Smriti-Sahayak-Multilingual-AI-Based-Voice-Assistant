@@ -23,7 +23,7 @@ export function DynamicBackground() {
           top: '32%',
           left: '-30%',
           width: '180%',
-          height: '60%',
+          height: '70%',
           backgroundImage: "url('/images/mist-overlay.png')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
