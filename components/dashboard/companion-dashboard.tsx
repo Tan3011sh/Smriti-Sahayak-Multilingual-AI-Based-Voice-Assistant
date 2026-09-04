@@ -45,7 +45,7 @@ export function CompanionDashboard({
   }, [response])
 
   return (
-    <main className="relative isolate flex min-h-svh flex-col px-6 py-8 sm:px-10 sm:py-10">
+    <main className="relative isolate flex min-h-svh flex-col overflow-hidden px-6 py-8 sm:px-10 sm:py-10">
   <DynamicBackground />
 
   <header className="relative z-10 flex items-center justify-between">

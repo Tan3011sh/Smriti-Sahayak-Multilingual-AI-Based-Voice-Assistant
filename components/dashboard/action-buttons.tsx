@@ -19,7 +19,7 @@ function ActionCard({
     <Link
       href={href}
       className={cn(
-        'group flex flex-1 flex-col items-center gap-3 rounded-3xl border border-border/60 bg-card/85 p-6 text-center shadow-sm backdrop-blur transition-all duration-300',
+        'group flex min-h-[12rem] flex-1 flex-col items-center justify-center gap-3 rounded-[2rem] border border-white/50 bg-card/90 p-6 text-center shadow-[0_12px_30px_rgba(44,61,50,0.12)] backdrop-blur-md transition-all duration-300 sm:min-h-[14rem] sm:p-8',
         'hover:-translate-y-1 hover:shadow-lg focus-visible:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary',
         'sm:p-8',
       )}
@@ -40,7 +40,7 @@ function ActionCard({
 
 export function ActionButtons() {
   return (
-    <div className="flex w-full max-w-2xl flex-col gap-4 sm:flex-row">
+    <div className="flex w-full max-w-2xl flex-col justify-center gap-4 sm:flex-row sm:gap-6">
       <ActionCard
         href="/todo"
         icon={ClipboardList}
