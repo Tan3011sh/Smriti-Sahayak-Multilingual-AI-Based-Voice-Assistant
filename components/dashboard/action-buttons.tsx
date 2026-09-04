@@ -31,7 +31,6 @@ function ActionCard({
         'focus-visible:ring-primary',
       )}
     >
-      {/* Icon */}
       <span
         className={cn(
           'flex size-[5.8rem] items-center justify-center rounded-full',
@@ -51,12 +50,10 @@ function ActionCard({
         />
       </span>
 
-      {/* Title */}
       <span className="text-[1.35rem] font-bold tracking-tight text-foreground sm:text-2xl">
         {label}
       </span>
 
-      {/* Description */}
       <span className="max-w-[16rem] text-[1rem] leading-relaxed text-muted-foreground sm:text-[1.05rem]">
         {description}
       </span>
