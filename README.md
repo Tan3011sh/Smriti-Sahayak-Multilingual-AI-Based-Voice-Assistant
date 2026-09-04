@@ -1,8 +1,6 @@
 # Smriti-Sahayak-Multilingual-AI-Based-Voice-Assistant
 
 
-[Continue working on v0 →](https://v0.app/chat/projects/prj_ezZDVJXJbn1alOQsZO9jvAvwjuh5)
-
 ## Getting Started
 
 First, run the development server:
