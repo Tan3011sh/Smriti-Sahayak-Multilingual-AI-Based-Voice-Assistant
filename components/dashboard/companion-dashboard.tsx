@@ -45,7 +45,13 @@ export function CompanionDashboard({
   }, [response])
 
   return (
-    <main className="relative flex min-h-svh flex-col overflow-hidden px-6 py-8 sm:px-10 sm:py-10">
+    <main
+  className="
+    relative isolate flex h-svh min-h-0 flex-col overflow-hidden
+    px-6 py-4
+    sm:px-10 sm:py-5
+  "
+>
   <DynamicBackground />
 
   <header className="relative z-10 flex items-center justify-between gap-6">
@@ -64,7 +70,15 @@ export function CompanionDashboard({
         </div>
       </header>
 
-      <div className="relative z-10 flex flex-1 flex-col items-center justify-center gap-12 py-8">
+      <div
+  className="
+    dashboard-compact
+    relative z-10 flex min-h-0 flex-1 flex-col
+    items-center justify-center
+    gap-[clamp(0.75rem,2.5vh,1.5rem)]
+    py-[clamp(0.25rem,1.5vh,1rem)]
+  "
+>
         <AIGreeting greeting={greeting} />
         <VoiceAssistant state={state} onActivate={activate} />
         <ActionButtons />

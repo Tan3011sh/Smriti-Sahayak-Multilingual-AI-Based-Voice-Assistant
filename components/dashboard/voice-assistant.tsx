@@ -26,8 +26,19 @@ export function VoiceAssistant({
   const isBusy = state !== 'idle'
 
   return (
-    <div className="flex flex-col items-center gap-6">
-      <div className="relative flex h-[15rem] w-[15rem] items-center justify-center sm:h-[17rem] sm:w-[17rem]">
+    <div className="flex flex-col items-center gap-3 sm:gap-5">
+      <div
+  className="
+    relative flex
+    h-[clamp(10rem,24vh,13rem)]
+    w-[clamp(10rem,24vh,13rem)]
+    items-center justify-center
+    sm:h-[clamp(11rem,25vh,15rem)]
+    sm:w-[clamp(11rem,25vh,15rem)]
+    lg:h-[clamp(12rem,27vh,17rem)]
+    lg:w-[clamp(12rem,27vh,17rem)]
+  "
+>
         {!prefersReducedMotion &&
           Array.from({ length: RING_COUNT }).map((_, i) => (
             <motion.span
@@ -129,7 +140,7 @@ transition={{
   ease: 'easeInOut',
 }}
           className={cn(
-  'relative flex h-44 w-44 items-center justify-center rounded-full',
+  'relative flex h-[clamp(9rem,21vh,10rem)] w-[clamp(9rem,21vh,10rem)] items-center justify-center rounded-full',
   
   state === 'idle'
     ? 'bg-gradient-to-br from-primary via-primary to-[oklch(0.3_0.06_155)]'

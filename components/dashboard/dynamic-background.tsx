@@ -10,11 +10,15 @@ export function DynamicBackground() {
     >
       {/* MAIN BACKGROUND */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: "url('/images/mountain-background.jpg')",
-        }}
-      />
+  aria-hidden="true"
+  className="absolute inset-0"
+  style={{
+    backgroundImage: "url('/images/mountain-background.jpg')",
+    backgroundSize: 'cover',
+    backgroundPosition: 'center center',
+    backgroundRepeat: 'no-repeat',
+  }}
+/>
 
       {/* CINEMATIC MOVING MIST */}
       <motion.div

@@ -19,8 +19,8 @@ function ActionCard({
     <Link
       href={href}
       className={cn(
-        'group flex min-h-[14rem] w-full flex-col items-center justify-center gap-4 sm:w-[28rem]',
-        'rounded-[2rem] border border-white/60 bg-card/90 p-7 text-center',
+        'group flex min-h-[clamp(6rem,11vh,8rem)] w-full flex-col items-center justify-center gap-[clamp(0.5rem,1vh,0.75rem)] sm:w-[24rem] sm:min-h-[clamp(7rem,12vh,9rem)]',
+        'rounded-[2rem] border border-white/50 bg-card/65 p-7 text-center',
         'shadow-[0_14px_35px_rgba(44,61,50,0.14)] backdrop-blur-md',
         'transition-all duration-300 sm:min-h-[14rem] sm:p-10',
 
@@ -36,7 +36,7 @@ function ActionCard({
           'flex size-[5.8rem] items-center justify-center rounded-full',
           'shadow-sm transition-all duration-300',
           'group-hover:scale-110 group-hover:shadow-md',
-          'sm:size-[5.5rem]',
+          'sm:size-[5rem]',
 
           tone === 'primary'
             ? 'bg-primary/15 text-primary'
@@ -44,7 +44,7 @@ function ActionCard({
         )}
       >
         <Icon
-          className="size-10 sm:size-11"
+  className="size-[clamp(2rem,4vh,2.5rem)] sm:size-[clamp(2.25rem,4vh,2.75rem)]"
           strokeWidth={1.8}
           aria-hidden="true"
         />

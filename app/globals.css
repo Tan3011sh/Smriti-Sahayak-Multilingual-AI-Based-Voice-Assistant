@@ -144,3 +144,33 @@
     text-wrap: balance;
   }
 }
+/*
+  =========================================================
+  SHORT VIEWPORT ADJUSTMENTS
+  =========================================================
+
+  Browsers such as Chrome have less available webpage height
+  because of the tabs and address bar.
+
+  When the viewport becomes short, we reduce spacing and
+  component sizes slightly so the entire dashboard remains
+  visible without vertical scrolling.
+
+  This does NOT affect normal/tall screens.
+*/
+
+@media (max-height: 850px) {
+  .dashboard-compact {
+    gap: 0.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+}
+
+@media (max-height: 750px) {
+  .dashboard-compact {
+    gap: 0.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+}
