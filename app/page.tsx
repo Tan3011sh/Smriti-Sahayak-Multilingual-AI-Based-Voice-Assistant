@@ -1,9 +1,5 @@
-import { CompanionDashboard } from '@/components/dashboard/companion-dashboard'
-import { getUserProfile } from '@/lib/services/user-service'
-import { getNotifications } from '@/lib/services/notifications-service'
+import { redirect } from 'next/navigation'
 
-export default async function Page() {
-  const [user, notifications] = await Promise.all([getUserProfile(), getNotifications()])
-
-  return <CompanionDashboard user={user} notifications={notifications} />
+export default function HomePage() {
+  redirect('/login')
 }

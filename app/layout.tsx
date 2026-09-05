@@ -1,3 +1,4 @@
+import { AuthProvider } from '@/context/AuthContext'
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Fraunces, Plus_Jakarta_Sans } from 'next/font/google'
@@ -59,7 +60,10 @@ export default function RootLayout({
       className={`bg-background ${fraunces.variable} ${plusJakarta.variable}`}
     >
       <body className="font-sans antialiased">
-        {children}
+        <AuthProvider>
+          {children}
+        </AuthProvider>
+
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
