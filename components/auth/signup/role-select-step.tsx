@@ -52,7 +52,7 @@ export function RoleSelectStep({
           </h3>
 
           <p className="mt-1 text-sm text-[#4A5D56]">
-            I am using SmritiCare for myself.
+            I am using Smriti Sahayak for myself.
           </p>
         </button>
 

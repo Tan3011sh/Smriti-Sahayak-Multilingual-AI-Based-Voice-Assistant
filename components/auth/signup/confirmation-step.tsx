@@ -26,7 +26,7 @@ export function ConfirmationStep({
       </h2>
 
       <p className="mx-auto mt-3 max-w-md text-[#4A5D56]">
-        Your SmritiCare account is ready. You can now continue to your
+        Your Smriti Sahayak account is ready. You can now continue to your
         {role === 'caregiver'
           ? ' caregiver dashboard.'
           : ' patient experience.'}
@@ -44,7 +44,7 @@ export function ConfirmationStep({
           backgroundColor: '#2F6F62',
         }}
       >
-        Continue to SmritiCare
+        Continue to Smriti Sahayak
       </button>
     </div>
   )

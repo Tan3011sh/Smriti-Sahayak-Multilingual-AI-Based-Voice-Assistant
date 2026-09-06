@@ -117,7 +117,7 @@ export function LoginForm() {
             className="mt-4 text-lg leading-relaxed"
             style={{ color: '#CFE2DC' }}
           >
-            SmritiCare pairs gentle cognitive activities for patients with
+            Smriti Sahayak pairs gentle cognitive activities for patients with
             clear, real-time insight for the family and caregivers supporting
             them — built for the North Eastern Region, and built to work even
             with patchy connectivity.
@@ -468,7 +468,7 @@ export function LoginForm() {
             className="mt-8 text-center"
             style={{ color: '#4A5D56' }}
           >
-            New to SmritiCare?{' '}
+            New to Smriti Sahayak?{' '}
             <Link
               href="/signup"
               className="font-semibold hover:opacity-80"

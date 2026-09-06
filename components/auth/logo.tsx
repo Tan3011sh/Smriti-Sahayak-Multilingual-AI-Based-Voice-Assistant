@@ -54,12 +54,12 @@ export function Logo({
 
       <span
         className={`
-          font-serif font-semibold tracking-tight
+          font-display font-semibold tracking-tight
           ${text}
           ${onDark ? 'text-white' : 'text-[#1F3B33]'}
         `}
       >
-        Smriti<span className="text-[#2F6F62]">Care</span>
+        Smriti<span className="text-[#2F6F62]"> Sahayak</span>
       </span>
     </div>
   )
