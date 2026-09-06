@@ -132,7 +132,7 @@ export function LoginForm() {
               />
 
               <span style={{ color: '#EAF2EF' }}>
-                Activities that adapt to how each patient is doing
+                Your personal adaptive friend and caretaker.
               </span>
             </li>
 
@@ -144,7 +144,7 @@ export function LoginForm() {
               />
 
               <span style={{ color: '#EAF2EF' }}>
-                One shared view for patients, families and caregivers
+                Personalised dashboards for patients, families and caregivers.
               </span>
             </li>
 
@@ -156,7 +156,7 @@ export function LoginForm() {
               />
 
               <span style={{ color: '#EAF2EF' }}>
-                Designed for large text, voice guidance and low bandwidth
+                Designed for elder citizens, with interactive voice guidance.
               </span>
             </li>
           </ul>
@@ -246,7 +246,7 @@ export function LoginForm() {
             className="font-serif text-3xl font-semibold"
             style={{ color: '#1F3B33' }}
           >
-            Welcome back
+            Welcome
           </h2>
 
           <p
