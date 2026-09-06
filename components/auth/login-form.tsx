@@ -119,8 +119,8 @@ export function LoginForm() {
           >
             Smriti Sahayak pairs gentle cognitive activities for patients with
             clear, real-time insight for the family and caregivers supporting
-            them — built for the North Eastern Region, and built to work even
-            with patchy connectivity.
+            them — built for the North Eastern Region. Provides offline support
+            for regions with less connectivity.
           </p>
 
           <ul className="mt-8 space-y-4">
