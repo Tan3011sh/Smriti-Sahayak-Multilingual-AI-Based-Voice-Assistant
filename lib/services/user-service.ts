@@ -1,6 +1,7 @@
-import { mockUser, type UserProfile } from '@/data/mock-user'
+import { getCurrentUser } from '@/lib/services/auth-service'
+import type { UserProfile } from '@/data/mock-user'
 
-// TODO: replace with `GET /user/profile` once the backend is available.
 export async function getUserProfile(): Promise<UserProfile> {
-  return Promise.resolve(mockUser)
+  return Promise.resolve(getCurrentUser())
 }
+
