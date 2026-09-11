@@ -6,7 +6,9 @@ import type { VoiceState } from '@/hooks/use-voice-assistant'
 import { VoiceVisualizer } from './voice-visualizer'
 import { cn } from '@/lib/utils'
 
-const STATE_LABEL: Record<VoiceState, string> = {
+import { useLanguage } from '@/context/language-context'
+
+const DEFAULT_STATE_LABEL: Record<VoiceState, string> = {
   idle: 'Tap to talk to me',
   listening: 'Listening...',
   thinking: 'Let me help you...',
@@ -24,6 +26,15 @@ export function VoiceAssistant({
 }) {
   const prefersReducedMotion = useReducedMotion()
   const isBusy = state !== 'idle'
+  const { t } = useLanguage()
+
+  const stateLabels: Record<VoiceState, string> = {
+    idle: t('voice.idle') || DEFAULT_STATE_LABEL.idle,
+    listening: t('voice.listening') || DEFAULT_STATE_LABEL.listening,
+    thinking: t('voice.thinking') || DEFAULT_STATE_LABEL.thinking,
+    speaking: t('voice.speaking') || DEFAULT_STATE_LABEL.speaking,
+  }
+
 
   return (
     <div className="flex flex-col items-center gap-3 sm:gap-5">
@@ -84,7 +95,7 @@ export function VoiceAssistant({
           disabled={isBusy}
           aria-label={
             isBusy
-              ? `AI companion is busy: ${STATE_LABEL[state]}`
+              ? `AI companion is busy: ${stateLabels[state]}`
               : 'Activate voice assistant'
           }
           aria-live="polite"
@@ -253,7 +264,7 @@ transition={{
         className="text-2xl font-medium text-foreground sm:text-3xl"
         aria-live="polite"
       >
-        {STATE_LABEL[state]}
+        {stateLabels[state]}
       </motion.p>
     </div>
   )
