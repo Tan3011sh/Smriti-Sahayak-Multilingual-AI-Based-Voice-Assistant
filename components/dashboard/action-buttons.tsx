@@ -61,24 +61,28 @@ function ActionCard({
   )
 }
 
+import { useLanguage } from '@/context/language-context'
+
 export function ActionButtons() {
+  const { t } = useLanguage()
+
   return (
-    <div className="flex w-full flex-col justify-between gap-10 sm:flex-row sm:px-6 lg:px-16">
+    <div className="flex w-full flex-col justify-between gap-6 sm:gap-10 sm:flex-row sm:px-6 lg:px-16">
       <ActionCard
         href="/todo"
         icon={ClipboardList}
-        label="To Do List"
-        description="See today's tasks and reminders"
+        label={t('nav.todo') || 'Daily Tasks'}
+        description={t('dashboard.dailyTasksDesc') || "See today's tasks and reminders"}
         tone="primary"
       />
 
       <ActionCard
         href="/games"
         icon={Puzzle}
-        label="Play Games"
-        description="Fun exercises to keep your mind sharp"
+        label={t('nav.games') || 'Play Games'}
+        description={t('dashboard.brainExerciseDesc') || 'Fun exercises to keep your mind sharp'}
         tone="sun"
       />
     </div>
   )
-}
+}

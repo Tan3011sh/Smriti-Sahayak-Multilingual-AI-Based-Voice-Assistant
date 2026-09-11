@@ -48,6 +48,8 @@ export const viewport: Viewport = {
   ],
 }
 
+import { AppProviders } from '@/components/providers/app-providers'
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -59,9 +61,12 @@ export default function RootLayout({
       className={`bg-background ${fraunces.variable} ${plusJakarta.variable}`}
     >
       <body className="font-sans antialiased">
-        {children}
+        <AppProviders>
+          {children}
+        </AppProviders>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
   )
 }
+

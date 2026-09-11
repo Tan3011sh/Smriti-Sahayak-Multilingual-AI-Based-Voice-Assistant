@@ -6,23 +6,23 @@ import type { VoiceState } from '@/hooks/use-voice-assistant'
 const BAR_COUNT = 5
 
 export function VoiceVisualizer({ state }: { state: VoiceState }) {
-  if (state === 'idle' || state === 'listening') return null
+  if (state === 'idle' || state === 'listening' || state === 'error') return null
 
   return (
     <div
       className="flex h-9 items-center justify-center gap-1.5"
       role="img"
-      aria-label={state === 'thinking' ? 'AI is thinking' : 'AI is speaking'}
+      aria-label={state === 'processing' ? 'AI is processing' : 'AI is speaking'}
     >
       {Array.from({ length: BAR_COUNT }).map((_, i) => {
-        const isThinking = state === 'thinking'
+        const isProcessing = state === 'processing'
 
         return (
           <motion.span
             key={i}
             className="w-1.5 rounded-full bg-primary-foreground"
             animate={
-              isThinking
+              isProcessing
                 ? {
                     height: [6, 12 + (i % 2) * 5, 6],
                     opacity: [0.5, 1, 0.5],
@@ -39,10 +39,10 @@ export function VoiceVisualizer({ state }: { state: VoiceState }) {
                   }
             }
             transition={{
-              duration: isThinking ? 1.4 : 0.75,
+              duration: isProcessing ? 1.4 : 0.75,
               repeat: Number.POSITIVE_INFINITY,
               ease: 'easeInOut',
-              delay: i * (isThinking ? 0.14 : 0.08),
+              delay: i * (isProcessing ? 0.14 : 0.08),
             }}
           />
         )
