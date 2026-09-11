@@ -28,11 +28,11 @@ export interface CognitiveProgress {
 
 export const mockCognitiveActivity: CognitiveActivity = {
   id: 'cog_1',
-  title: 'Memory Match — Nature & Animals',
-  description: 'Sharpen short-term memory by matching pairs of cards at your own comfortable pace.',
+  title: 'Memory Recall — Familiar Objects',
+  description: 'Sharpen visual recall and object recognition at your own comfortable pace.',
   difficulty: 'Gentle',
-  estimatedMinutes: 5,
-  gameUrl: '/games/memory-match',
+  estimatedMinutes: 3,
+  gameUrl: '/games/memory',
   category: 'Memory Enhancement',
 }
 

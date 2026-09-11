@@ -1,10 +1,22 @@
 'use client'
 
 import Link from 'next/link'
-import { Brain, Play, Sparkles, Clock, Signal } from 'lucide-react'
+import { Brain, Play, Sparkles, Clock, Signal, Compass } from 'lucide-react'
 import type { CognitiveActivity } from '@/data/mock-patient-dashboard'
+import type { Difficulty } from '@/types/game'
 
-export function CognitiveActivityCard({ activity }: { activity: CognitiveActivity }) {
+export function CognitiveActivityCard({
+  activity,
+  recommendedDifficulty,
+  recommendationReason,
+}: {
+  activity: CognitiveActivity
+  recommendedDifficulty?: Difficulty
+  recommendationReason?: string
+}) {
+  const currentDiff = recommendedDifficulty || 'Easy'
+  const targetUrl = `${activity.gameUrl}?difficulty=${currentDiff}`
+
   return (
     <div className="w-full rounded-[2rem] border border-white/70 bg-card/90 p-6 sm:p-7 shadow-[0_12px_35px_rgba(44,61,50,0.16)] backdrop-blur-md transition-all duration-300 hover:shadow-[0_18px_45px_rgba(44,61,50,0.22)]">
       <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-border/60">
@@ -29,25 +41,33 @@ export function CognitiveActivityCard({ activity }: { activity: CognitiveActivit
           </p>
         </div>
 
-        <div className="flex flex-wrap items-center gap-4 text-base font-semibold text-foreground/80 pt-1">
-          <div className="flex items-center gap-2 rounded-xl bg-secondary/70 px-3.5 py-2">
-            <Signal className="size-5 text-primary" />
-            <span>Difficulty: <strong className="text-primary">{activity.difficulty}</strong></span>
+        {/* Personalized Difficulty Recommendation Banner */}
+        <div className="rounded-2xl bg-primary/10 border border-primary/25 p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="space-y-1">
+            <div className="flex items-center gap-2 text-primary font-bold text-base sm:text-lg">
+              <Compass className="size-5" />
+              <span>Recommended for you: <strong className="text-xl uppercase underline decoration-primary/40">{currentDiff}</strong></span>
+            </div>
+            <p className="text-xs sm:text-sm font-medium text-foreground/75">
+              {recommendationReason || 'Based on your recent activity'}
+            </p>
           </div>
 
-          <div className="flex items-center gap-2 rounded-xl bg-secondary/70 px-3.5 py-2">
-            <Clock className="size-5 text-primary" />
-            <span>{activity.estimatedMinutes} mins</span>
+          <div className="flex items-center gap-3 text-sm sm:text-base font-semibold text-foreground/80">
+            <div className="flex items-center gap-2 rounded-xl bg-card/80 px-3 py-1.5 shadow-sm border border-border/40">
+              <Clock className="size-4 text-primary" />
+              <span>{activity.estimatedMinutes} mins</span>
+            </div>
           </div>
         </div>
 
-        <div className="pt-3">
+        <div className="pt-2">
           <Link
-            href={activity.gameUrl}
+            href={targetUrl}
             className="group flex w-full h-16 items-center justify-center gap-3 rounded-2xl bg-primary text-primary-foreground text-xl font-bold shadow-lg transition-all duration-300 hover:brightness-110 active:scale-[0.99] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40"
           >
             <Play className="size-6 fill-current transition-transform group-hover:scale-110" />
-            <span>Start Recommended Activity</span>
+            <span>Start Activity ({currentDiff})</span>
           </Link>
         </div>
       </div>
