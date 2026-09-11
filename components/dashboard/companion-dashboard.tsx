@@ -43,9 +43,13 @@ export function CompanionDashboard({
   const router = useRouter()
   const { language, t } = useLanguage()
   const [currentUser, setCurrentUser] = useState<UserProfile>(initialUser)
-  const [greeting, setGreeting] = useState<Greeting>(() =>
-    getTimeOfDayGreeting(initialUser.name.split(' ')[0], new Date().getHours()),
-  )
+  const [greeting, setGreeting] = useState<Greeting>(() => {
+    const firstName = initialUser.name.split(' ')[0]
+    return {
+      title: getTimeOfDayGreeting(firstName, new Date().getHours()).title,
+      subtitle: t('voice.namasteGreeting') || 'Namaste! How can I help you today?',
+    }
+  })
 
   // Dynamic progress state backed by local storage
   const [progress, setProgress] = useState<ExtendedCognitiveProgress>(() => {
@@ -63,7 +67,10 @@ export function CompanionDashboard({
     const active = getCurrentUser()
     if (active && active.id) {
       setCurrentUser(active)
-      setGreeting(getTimeOfDayGreeting(active.name.split(' ')[0], new Date().getHours()))
+      setGreeting({
+        title: getTimeOfDayGreeting(active.name.split(' ')[0], new Date().getHours()).title,
+        subtitle: t('voice.namasteGreeting') || 'Namaste! How can I help you today?',
+      })
     }
 
     const loadData = () => {
@@ -115,21 +122,25 @@ export function CompanionDashboard({
       window.removeEventListener('smriti_game_completed', handleGameCompleted)
       window.removeEventListener('smriti_recommendation_updated', handleRecUpdated)
     }
-  }, [])
+  }, [t])
 
-  const { state, response, activate } = useVoiceAssistant({
+  // Sarvam Voice Assistant Integration (Strictly Conversational Scope in Phase 6.5A)
+  const {
+    state,
+    transcript,
+    response,
+    errorMessage,
+    activate,
+    sendTextMessage,
+    replayLastResponse,
+  } = useVoiceAssistant({
     language,
-    onAction: (action) => {
-      if (action === 'todo') router.push('/todo')
-      if (action === 'games') router.push('/games')
-    },
+    patientName: currentUser?.name?.split(' ')[0],
   })
 
   useEffect(() => {
     if (response) {
-      const random =
-        encouragementGreetings[Math.floor(Math.random() * encouragementGreetings.length)]
-      setGreeting({ title: random.title, subtitle: response })
+      setGreeting((prev) => ({ title: prev.title, subtitle: response }))
     }
   }, [response])
 
@@ -171,7 +182,15 @@ export function CompanionDashboard({
         <AIGreeting greeting={greeting} />
 
         {/* 2. Central Voice Assistant Widget */}
-        <VoiceAssistant state={state} onActivate={activate} />
+        <VoiceAssistant
+          state={state}
+          onActivate={activate}
+          transcript={transcript}
+          response={response}
+          errorMessage={errorMessage}
+          onSendText={sendTextMessage}
+          onReplay={replayLastResponse}
+        />
 
         {/* 3. Quick Navigation Actions (Play Games, To Do List) */}
         <ActionButtons />
